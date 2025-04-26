@@ -9,14 +9,13 @@ interface props {
 }
 
 export const ShowErrrorsComponent = ({fieldName, errorByFiled}: props) => {
-
     const SEVERITY_WEIGHT = {
         high: 3,
         medium: 2,
         low: 1
     } as const;
 
-    
+    console.log(errorByFiled)
    const getErrorForField = (): AppError[] => {
         return errorByFiled[fieldName]?.sort((a, b) =>
             SEVERITY_WEIGHT[b.severity] - SEVERITY_WEIGHT[a.severity]
@@ -24,8 +23,8 @@ export const ShowErrrorsComponent = ({fieldName, errorByFiled}: props) => {
     }
 
 
-    const errors = getErrorForField();
-
+    const errors = getErrorForField() || [];
+console.log("esto es errors",errors)
   return (
     
    <>

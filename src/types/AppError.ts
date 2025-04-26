@@ -1,5 +1,3 @@
-import { ZodError } from "zod"
-
 
 export type AppError = {
 code: string; 
